@@ -1,3 +1,7 @@
+/*
+Copyright © 2023 SIMON KUCHARSKY <kucharssim@gmail.com>
+*/
+
 package gitools
 
 import (
