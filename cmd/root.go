@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Kucharssim/git-lite/pkg/gitools"
+	"github.com/Kucharssim/git-ignore/pkg/gitools"
 	"github.com/spf13/cobra"
 )
 
