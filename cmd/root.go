@@ -7,10 +7,12 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/Kucharssim/git-lite/pkg/gitools"
 	"github.com/spf13/cobra"
 )
 
 var here bool
+var commit bool
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
@@ -22,6 +24,7 @@ You can add multiple files or folders.`,
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Adding", args, "to .gitignore")
+		gitools.GitIgnore(args, here, commit)
 	},
 }
 
@@ -36,4 +39,6 @@ func Execute() {
 
 func init() {
 	rootCmd.Flags().BoolVar(&here, "here", false, "Write to a .gitignore file in the current working directory. Otherwise writes to the .gitignore in the root of the git repository")
+	rootCmd.Flags().BoolVarP(&commit, "commit", "c", false, "Automatically commit the changes to the .gitignore file")
+
 }
