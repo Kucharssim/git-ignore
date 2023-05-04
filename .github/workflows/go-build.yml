@@ -1,5 +1,5 @@
 # workflow name
-name: Build go package
+name: Generate builds and release
 
 # on events
 on:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Generate build files
         uses: thatisuday/go-cross-build@v1
         with:
@@ -24,3 +24,11 @@ jobs:
             name: 'git-ignore'
             compress: 'false'
             dest: 'dist'
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Test
+          files: |
+            dist/git-ignore-linux-amd64
+            dist/git-ignore-darwin-amd64
+            dist/git-ignore-windows-amd64.exe
