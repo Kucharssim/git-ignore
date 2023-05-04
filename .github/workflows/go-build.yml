@@ -32,7 +32,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: Test
           files: |
             dist/git-ignore-linux-amd64
             dist/git-ignore-darwin-amd64
