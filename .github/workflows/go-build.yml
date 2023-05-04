@@ -3,9 +3,9 @@ name: Build go package
 
 # on events
 on:
-  release:
-    types: 
-        - created
+  push:
+    tags:
+      - '**'
   workflow_dispatch:
 
 # workflow tasks
